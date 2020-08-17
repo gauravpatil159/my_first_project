@@ -1,6 +1,8 @@
 import Students
 import school
 import statistics 
+import os
+
 
 
 class grade():
@@ -9,6 +11,21 @@ class grade():
 
 	marks = []
 	grade = []
+
+
+	# Removing privious data.txt file 
+
+	path = os.getcwd()
+	print(path)
+	path = path + "/data.txt"
+	print(path)
+	try:
+		os.remove(path)
+	except FileNotFoundError:
+		print("File is not avilable")
+
+
+# writing final results
 	file = open("data.txt", "a")
 	file.write("name,surname,Rollno,Grade")
 	file.write("\n")
@@ -26,7 +43,7 @@ class grade():
 	print(marks)
 	file.close()	
 
-print(grade.grade)
+#print(grade.grade)
 
 
 
